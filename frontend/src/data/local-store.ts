@@ -1,59 +1,34 @@
+import { allEntries, commit, entriesOf, resetEntries } from './domain-store'
 import { SEED_ROWS } from './seed'
 import type { EntryRow } from './types'
 
 // 本地持久化：数据放在 localStorage 里，刷新、关掉再打开都还在。
-const STORAGE_KEY = 'shield-tunnel-construction:entries'
+// 阈值版本、幂等账本等注浆域数据见 domain-store.ts；本文件保留原有读写入口，
+// 各页面与 local-service.ts 沿用 listRows/saveRows 的读法不变。
 
-function clone<T>(value: T): T {
-  return JSON.parse(JSON.stringify(value)) as T
-}
-
-function readStorage(): Record<string, EntryRow[]> {
-  const fallback = clone(SEED_ROWS)
-  if (typeof window === 'undefined' || !window.localStorage) {
-    return fallback
-  }
-  const raw = window.localStorage.getItem(STORAGE_KEY)
-  if (!raw) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(fallback))
-    return fallback
-  }
-  try {
-    const parsed = JSON.parse(raw) as Record<string, EntryRow[]>
-    return { ...fallback, ...parsed }
-  } catch {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(fallback))
-    return fallback
-  }
-}
-
-let cache: Record<string, EntryRow[]> | null = null
+const STORAGE_KEY = 'shield-tunnel-construction:v2'
 
 export function allRows(): Record<string, EntryRow[]> {
-  if (cache === null) {
-    cache = readStorage()
-  }
-  return cache
+  return allEntries()
 }
 
 export function listRows(key: string): EntryRow[] {
-  return allRows()[key] ?? []
+  return entriesOf(key)
 }
 
+/** 普通模块直接整组保存；注浆/拌制请走 local-service 的事务动作，避免两边各算一遍。 */
 export function saveRows(key: string, rows: EntryRow[]): void {
-  const next = { ...allRows(), [key]: rows }
-  cache = next
-  if (typeof window !== 'undefined' && window.localStorage) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-  }
+  commit((draft) => {
+    draft.entries[key] = rows
+  })
 }
 
 export function resetRows(key: string): EntryRow[] {
-  const rows = clone(SEED_ROWS[key] ?? [])
-  saveRows(key, rows)
-  return rows
+  return resetEntries(key)
 }
 
 export function storageKey(): string {
   return STORAGE_KEY
 }
+
+export { SEED_ROWS }

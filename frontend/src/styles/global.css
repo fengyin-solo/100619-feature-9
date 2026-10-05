@@ -35,3 +35,46 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+
+/* 同步注浆 / 浆液拌制 判定相关 */
+.identity-banner { margin: 0 0 10px; padding: 6px 10px; background: #e8f1ff; border: 1px solid #b9d2fb; border-radius: 6px; font-size: 12px; color: #1f4e99; }
+.identity-banner.muted { background: #f4f5f7; border-color: var(--border); color: var(--muted); }
+.status-badge { font-weight: 600; }
+.status-pending { color: #b42318; }
+.status-done { color: #17663a; }
+.verdict-cell.verdict-bad { color: #b42318; font-weight: 600; }
+.verdict-cell.verdict-ok { color: #17663a; }
+.reason-cell { color: #b42318; max-width: 320px; }
+.action-hint { color: var(--muted); font-size: 12px; margin-left: 4px; }
+.makeup-row td { background: #f8fafc; }
+.makeup-code { color: #1f6feb; }
+.archive-toggle { font-size: 10px; margin-right: 4px; color: var(--muted); }
+.archive-dot { display: inline-block; width: 18px; color: transparent; }
+.archive-row td { background: #fbfdff; padding: 6px 10px; }
+.archive-box { font-size: 12px; color: #475569; }
+.archive-box ul { margin: 4px 0 0; padding-left: 18px; }
+.grouting-table td, .grouting-table th { vertical-align: top; }
+.cross-panel { margin: 14px 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.cross-panel h3 { margin: 0 0 8px; font-size: 14px; }
+.data-table.compact th, .data-table.compact td { padding: 5px 8px; font-size: 12px; }
+.batch-pending td { background: #fff4f2; }
+.ok-text { color: #17663a; }
+
+/* 弹窗与表单 */
+.modal-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); display: flex; align-items: center; justify-content: center; z-index: 20; }
+.modal { background: #fff; border-radius: 10px; padding: 18px 20px; width: 720px; max-width: 94vw; max-height: 90vh; overflow: auto; }
+.modal-wide .modal { width: 900px; }
+.modal h3 { margin: 0 0 8px; font-size: 16px; }
+.modal-tip { font-size: 12px; color: var(--muted); margin: 0 0 12px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 10px; }
+.form-item { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.form-item.full { grid-column: 1 / -1; }
+.form-item input, .form-item select, .cell-input { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; color: #1f2937; }
+.cell-input { width: 100%; }
+.cell-input.wide { min-width: 220px; }
+.cell-warn { color: #b42318; border-color: #f0a99f !important; }
+.form-section { margin: 12px 0 6px; font-size: 13px; }
+.range-hint { font-size: 12px; color: #1f4e99; background: #eef5ff; border-radius: 6px; padding: 6px 10px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.identity-select { border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; font-size: 12px; }
+.version-active td { background: #eef5ff; font-weight: 600; }

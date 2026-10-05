@@ -85,3 +85,6 @@ desktop.ini
 *.db
 *.pid
 *.seed
+
+# 注浆冒烟测试打包产物
+frontend/scripts/.smoke-grouting.mjs
