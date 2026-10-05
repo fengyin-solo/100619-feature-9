@@ -54,6 +54,14 @@ export function resetRows(key: string): EntryRow[] {
   return rows
 }
 
+/** 注浆工作区写库失败时，用工作区事务前的整份台账快照还原内存与持久层。 */
+export function restoreAll(snapshot: Record<string, EntryRow[]>): void {
+  cache = clone(snapshot)
+  if (typeof window !== 'undefined' && window.localStorage) {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cache))
+  }
+}
+
 export function storageKey(): string {
   return STORAGE_KEY
 }

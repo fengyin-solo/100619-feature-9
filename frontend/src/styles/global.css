@@ -35,3 +35,33 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+.refill-pane { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 14px 0; }
+.refill-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.refill-head h3 { font-size: 14px; margin: 0; }
+.refill-tip { color: var(--muted); font-size: 12px; }
+.cell-sub { color: var(--muted); font-size: 12px; }
+.reason-cell { display: flex; flex-direction: column; gap: 2px; max-width: 360px; }
+.reason-line { font-size: 12px; color: #b54708; }
+.conflict-line { font-size: 12px; color: #b42318; }
+.badge { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 12px; }
+.badge.warn { background: #fef3c7; color: #92400e; }
+.badge.bad { background: #fee4e2; color: #b42318; }
+.badge.ok { background: #dcfae6; color: #067647; }
+.identity-bar { display: flex; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: 13px; }
+.identity-bar select { padding: 4px 8px; }
+.form-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 14px; }
+.form-grid label span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.form-grid input, .form-grid select { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; }
+.form-panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+.form-panel h3 { margin: 0 0 10px; font-size: 14px; }
+.form-actions { display: flex; gap: 8px; margin-top: 12px; }
+.judge-hint { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.history-note { font-size: 12px; color: var(--muted); }
+.threshold-pane { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+.threshold-pane h3 { margin: 0 0 6px; font-size: 14px; }
+.threshold-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.threshold-card { border: 1px solid var(--border); border-radius: 6px; padding: 10px; }
+.threshold-card h4 { margin: 0 0 8px; font-size: 13px; }
+.threshold-card label { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 6px; }
+.threshold-card input { width: 90px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px; }
+.refill-list { margin: 4px 0 0; padding-left: 16px; font-size: 12px; color: var(--muted); }
